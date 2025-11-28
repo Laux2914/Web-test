@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统 - 用户注册</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f0f8ff; /* 淡蓝色背景 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .register-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 600px;
+            margin: 20px 0;
+        }
+        
+        .system-name {
+            text-align: center;
+            color: #2980b9;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        table td {
+            padding: 8px;
+        }
+        
+        .label-column {
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"], 
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            resize: vertical;
+            height: 80px;
+        }
+        
+        .gender-options {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .gender-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .gender-option input {
+            margin-right: 5px;
+        }
+        
+        .hobby-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .hobby-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .hobby-option input {
+            margin-right: 5px;
+        }
+        
+        .button-row {
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        .submit-btn, 
+        .return-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .submit-btn {
+            background-color: #2980b9;
+            color: white;
+        }
+        
+        .return-btn {
+            background-color: #ecf0f1;
+            color: #333;
+        }
+        
+        .submit-btn:hover {
+            background-color: #3498db;
+        }
+        
+        .return-btn:hover {
+            background-color: #bdc3c7;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1 class="system-name">用户注册</h1>
+        
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td class="label-column">用户名：<span class="required">*</span></td>
+                    <td><input type="text" name="username" placeholder="请输入用户名/借书证号" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">密码：<span class="required">*</span></td>
+                    <td><input type="password" name="password" placeholder="请输入密码" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">确认密码：<span class="required">*</span></td>
+                    <td><input type="password" name="confirm_password" placeholder="请再次输入密码" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">姓名：<span class="required">*</span></td>
+                    <td><input type="text" name="name" placeholder="请输入真实姓名" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">性别：</td>
+                    <td>
+                        <div class="gender-options">
+                            <label class="gender-option">
+                                <input type="radio" name="gender" value="male" checked> 男
+                            </label>
+                            <label class="gender-option">
+                                <input type="radio" name="gender" value="female"> 女
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-column">身份证号：<span class="required">*</span></td>
+                    <td><input type="text" name="id_card" placeholder="请输入18位身份证号码" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">出生日期：</td>
+                    <td><input type="date" name="birth_date"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">爱好：</td>
+                    <td>
+                        <div class="hobby-options">
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="reading"> 阅读
+                            </label>
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="sports"> 运动
+                            </label>
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="music"> 音乐
+                            </label>
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="movie"> 电影
+                            </label>
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="travel"> 旅行
+                            </label>
+                            <label class="hobby-option">
+                                <input type="checkbox" name="hobbies[]" value="art"> 艺术
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-column">联系电话：<span class="required">*</span></td>
+                    <td><input type="tel" name="phone" placeholder="请输入联系电话" required></td>
+                </tr>
+                <tr>
+                    <td class="label-column">Email：</td>
+                    <td><input type="email" name="email" placeholder="请输入电子邮箱"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">地址：</td>
+                    <td><textarea name="address" placeholder="请输入详细地址"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-row">
+                        <button type="submit" class="submit-btn">提交注册</button>
+                        <button type="button" class="return-btn" onclick="window.location.href='login.html'">返回登录</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        <div class="footer">
+            <p><small>版权所有 © 2025 学号：2024061010000517 姓名：刘翔</small></p>
+        </div>
+    </div>
+</body>
+</html>
